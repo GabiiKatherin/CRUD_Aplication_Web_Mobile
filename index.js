@@ -3,7 +3,7 @@ var dados = []
 function PopulateTable() {
     if (Array.isArray(data)) {
 
-        //get the updated array and turn json into text
+        //
         localStorage.setItem("__data__", JSON.stringify(data))
 
         $("#tblData tbody").html("") //JQuery code:empty text for tbody tag
@@ -46,20 +46,20 @@ $(function () {
         record.Function = Function
         record.Allocated = Allocated
 
-        //lengh vector+1
-        record.ID = data.length + 1
+           //lengh vector+1
+           record.ID = data.length + 1
 
-        data.push(record)
-
-        $("#modalRecod").modal("hide") //close modal
-
-        //clear modal: insert empty
-        let Batch = $("txtBatch").val("")
-        let Name = $("txtName").val("")
-        let Function = $("txtFunction").val("")
-        let Allocated = $("txtAllocated").val("")
-
-        PopulateTable()
-    })
-
-})
+           data.push(record)
+   
+           $("#modalRecod").modal("hide") //close modal
+   
+           //clear modal: insert empty
+           $("txtBatch").val("")
+           $("txtName").val("")
+           $("txtFunction").val("")
+           $("txtAllocated").val("")
+   
+           PopulateTable()
+       })
+   
+   })

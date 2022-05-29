@@ -3,6 +3,9 @@ var dados = []
 function PopulateTable() {
     if (Array.isArray(data)) {
 
+        //get the updated array and turn json into text
+        localStorage.setItem("__data__", JSON.stringify(data))
+
         $("#tblData tbody").html("") //JQuery code:empty text for tbody tag
 
         //loop available in javascript, which visits each object contained in the array slots
@@ -28,7 +31,7 @@ $(function () {
         PopulateTable()
     }
 
-    $("#btnSave").click(function()){
+    $("#btnSave").click(function(){
         //Event click button Save changes
 
         let Batch = $("txtBatch").val() //what the user types in the modal will be delivered to val() to store in the Batch variable
@@ -38,6 +41,25 @@ $(function () {
             
         let record = {}
 
-    }
+        record.Batch = Batch
+        record.Name = Name
+        record.Function = Function
+        record.Allocated = Allocated
+
+        //lengh vector+1
+        record.ID = data.length + 1
+
+        data.push(record)
+
+        $("#modalRecod").modal("hide") //close modal
+
+        //clear modal: insert empty
+        let Batch = $("txtBatch").val("")
+        let Name = $("txtName").val("")
+        let Function = $("txtFunction").val("")
+        let Allocated = $("txtAllocated").val("")
+
+        PopulateTable()
+    })
 
 })

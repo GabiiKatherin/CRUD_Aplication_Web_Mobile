@@ -16,4 +16,4 @@ Web system for registration and control (CRUD) of materials in warehouse. And st
 
 -> IN THIS PROJETC:
 
- - Using Bootstrap framework: https://getbootstrap.com/docs/4.5/getting-started/introduction/
+ - Using Bootstrap framework: https://getbootstrap.com/docs/5.0/getting-started/introduction/

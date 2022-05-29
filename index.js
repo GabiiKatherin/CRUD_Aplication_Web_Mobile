@@ -28,4 +28,16 @@ $(function () {
         PopulateTable()
     }
 
+    $("#btnSave").click(function()){
+        //Event click button Save changes
+
+        let Batch = $("txtBatch").val() //what the user types in the modal will be delivered to val() to store in the Batch variable
+        let Name = $("txtName").val()
+        let Function = $("txtFunction").val()
+        let Allocated = $("txtAllocated").val()
+            
+        let record = {}
+
+    }
+
 })

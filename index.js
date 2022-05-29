@@ -25,20 +25,21 @@ function PopulateTable() {
 /*Using JQuery*/
 $(function () {
     //run on screen loading
-    data = JSON.parse(localStorage.setItem("__data__")) //HMTL API to store in browser cookies, information
+    data = JSON.parse(localStorage.setItem("__data__")) ?? [] //HMTL API to store in browser cookies, information
 
-    if (data) {
+    if (data != null) {
         PopulateTable()
-    }
+    } else {data = []}
 
-    $("#btnSave").click(function(){
+    
+    $("#btnSave").click(function () {
         //Event click button Save changes
 
         let Batch = $("txtBatch").val() //what the user types in the modal will be delivered to val() to store in the Batch variable
         let Name = $("txtName").val()
         let Function = $("txtFunction").val()
         let Allocated = $("txtAllocated").val()
-            
+
         let record = {}
 
         record.Batch = Batch
@@ -46,20 +47,20 @@ $(function () {
         record.Function = Function
         record.Allocated = Allocated
 
-           //lengh vector+1
-           record.ID = data.length + 1
+        //lengh vector+1
+        record.ID = data.length + 1
 
-           data.push(record)
-   
-           $("#modalRecod").modal("hide") //close modal
-   
-           //clear modal: insert empty
-           $("txtBatch").val("")
-           $("txtName").val("")
-           $("txtFunction").val("")
-           $("txtAllocated").val("")
-   
-           PopulateTable()
-       })
-   
-   })
+        data.push(record)
+
+        $("#modalRecord").modal("hide") //close modal
+
+        //clear modal: insert empty
+        $("txtBatch").val("")
+        $("txtName").val("")
+        $("txtFunction").val("")
+        $("txtAllocated").val("")
+
+        PopulateTable()
+    })
+
+})
